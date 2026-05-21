@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="appointment_title">Rendez-vous – RUHUKA_CENTRE</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="logo">CENTRE RUHUKA</div>
+
+  <nav>
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home"></a></li>
+      <li><a href="about.html" data-i18n="nav_about"></a></li>
+      <li><a href="services.html" data-i18n="nav_services"></a></li>
+      <li><a href="team.html" data-i18n="nav_team"></a></li>
+      <li><a href="appointment.html" class="btn-nav" data-i18n="nav_appointment"></a></li>
+      <li><a href="blog.html" data-i18n="nav_blog"></a></li>
+    </ul>
+  </nav>
+
+  <div class="lang-switch">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('sw')">SW</button>
+    <button onclick="setLang('rn')">RN</button>
+  </div>
+</header>
+
+<main>
+
+<section class="fade-in">
+
+<h2 data-i18n="appointment_title"></h2>
+
+<form class="appointment-form" id="form">
+
+<label data-i18n="appointment_name"></label>
+<input type="text" data-i18n-placeholder="appointment_name_placeholder" required>
+
+<label data-i18n="appointment_email"></label>
+<input type="email" data-i18n-placeholder="appointment_email_placeholder" required>
+
+<label data-i18n="appointment_service"></label>
+<select required>
+  <option data-i18n="services_marriage"></option>
+  <option data-i18n="services_couple"></option>
+  <option data-i18n="services_reconstruction"></option>
+  <option data-i18n="services_parenting"></option>
+</select>
+
+<label data-i18n="appointment_coach"></label>
+<select>
+  <option>HABONIMANA Désiré Damour</option>
+  <option>Éric NIBARUTA</option>
+  <option>Jean Bosco</option>
+  <option>Tantine JACKY</option>
+</select>
+
+<label data-i18n="appointment_mode"></label>
+<select>
+  <option data-i18n="mode_whatsapp"></option>
+  <option data-i18n="mode_zoom"></option>
+  <option data-i18n="appointment_presentiel"></option>
+</select>
+
+<label data-i18n="appointment_date"></label>
+<input type="date" required>
+
+<label data-i18n="appointment_time"></label>
+<input type="time" required>
+
+<label data-i18n="appointment_message"></label>
+<textarea data-i18n-placeholder="appointment_message_placeholder"></textarea>
+
+<button type="submit" data-i18n="appointment_submit"></button>
+
+</form>
+
+</section>
+
+</main>
+
+<footer>
+<div class="socials">
+  <a href="https://www.facebook.com/profile.php?id=61569261083594" target="_blank" rel="noopener noreferrer">Facebook</a>
+  <a href="https://www.instagram.com/centreruhuka/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  <a href="https://x.com/centreruhuka" target="_blank" rel="noopener noreferrer">X</a>
+</div>
+
+<p>© 2026 Centre_Ruhuka. Tous droits réservés.</p>
+
+<a href="https://wa.me/25779993164" class="btn-floating">WhatsApp</a>
+</footer>
+
+<script src="script.js"></script>
+
+<!-- 🔥 SCRIPT WHATSAPP -->
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+e.preventDefault();
+
+let inputs = this.querySelectorAll("input, textarea, select");
+
+let data = [];
+inputs.forEach(el=>{
+if(el.value){
+data.push(el.value);
+}
+});
+
+let message = "Rendez-vous RUHUKA:%0A%0A" + data.join("%0A");
+
+window.open("https://wa.me/25779993164?text=" + message, "_blank");
+});
+</script>
+
+</body>
+</html>
