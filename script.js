@@ -518,19 +518,36 @@ function renderBlog(){
   const container = document.getElementById("blogContainer");
   if(!container) return;
 
-  const lang = currentLang;
+  const lang = localStorage.getItem("lang") || "fr";
 
-  blogPosts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+  let posts = [];
+
+  try {
+    posts = JSON.parse(localStorage.getItem("blogPosts"));
+  } catch(e){}
+
+  if(!posts || posts.length === 0){
+    posts = window.blogPosts || [];
+  }
+
+  if(!posts || posts.length === 0){
+    container.innerHTML = "<p>Aucun article disponible</p>";
+    return;
+  }
+
+  posts = posts.filter(p => p.published !== false);
+
+  posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
 
   container.innerHTML = "";
 
-  blogPosts.forEach(post=>{
+  posts.forEach(post=>{
     container.innerHTML += `
       <div class="blog-card fade-in">
-        <img src="${post.image}" style="width:100%;border-radius:10px;">
-        <small>${post.date}</small>
-        <h3>${post.title[lang]}</h3>
-        <p>${post.text[lang]}</p>
+        <img src="${post.image || ''}" style="width:100%;border-radius:10px;">
+        <small>${post.date || ''}</small>
+        <h3>${post.title?.[lang] || ''}</h3>
+        <p>${post.text?.[lang] || ''}</p>
       </div>
     `;
   });
@@ -754,4 +771,15 @@ function publishPost(id){
   alert("Article retiré ❌");
 
   renderBlog();
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  if (!hamburger || !navMenu) return;
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+});
+  }

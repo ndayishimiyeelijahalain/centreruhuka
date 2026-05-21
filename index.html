@@ -7,8 +7,34 @@
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const navToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".navbar nav ul");
+
+  if(navToggle && navMenu){
+    navToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show-menu");
+    });
+  }
+
+});
+</script>
 
 <body>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navToggle = document.querySelector(".menu-toggle");
+  const navMenu = document.querySelector(".navbar nav ul");
+
+  if(navToggle && navMenu){
+    navToggle.addEventListener("click", ()=>{
+      navMenu.classList.toggle("show-menu");
+    });
+  }
+});
+</script>
 <canvas id="particles"></canvas>
 
 <header class="navbar">
@@ -16,7 +42,7 @@
   <div class="logo">CENTRE RUHUKA</div>
 
   <!-- 🍔 HAMBURGER -->
-  <div class="hamburger" id="hamburger">
+  <div id="hamburger" class="hamburger">
     <span></span>
     <span></span>
     <span></span>

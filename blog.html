@@ -3,40 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title data-i18n="blog_title">Blog & Événements – RUHUKA_CENTRE</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
-<script>
-const navToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".navbar nav ul");
-
-if(navToggle){
-  navToggle.addEventListener("click", ()=>{
-    navMenu.classList.toggle("show-menu");
-  });
-}
-</script>
 
 <body>
 
-<!-- NAVBAR -->
 <header class="navbar">
   <div class="logo">RUHUKA_CENTRE</div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" data-i18n="nav_home"></a></li>
-      <li><a href="about.html" data-i18n="nav_about"></a></li>
-      <li><a href="services.html" data-i18n="nav_services"></a></li>
-      <li><a href="team.html" data-i18n="nav_team"></a></li>
-      <li><a href="blog.html" data-i18n="nav_blog"></a></li>
-      <li><a href="appointment.html" data-i18n="nav_appointment"></a></li>
-    </ul>
-  </nav>
+  <div class="menu-toggle">☰</div>
 
-  <!-- LANG SWITCH -->
+  <nav>
+  <div id="hamburger" class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul id="nav-menu">
+    <li><a href="index.html" data-i18n="nav_home"></a></li>
+    <li><a href="about.html" data-i18n="nav_about"></a></li>
+    <li><a href="services.html" data-i18n="nav_services"></a></li>
+    <li><a href="team.html" data-i18n="nav_team"></a></li>
+    <li><a href="blog.html" data-i18n="nav_blog"></a></li>
+    <li><a href="appointment.html" data-i18n="nav_appointment"></a></li>
+  </ul>
+</nav>
+
   <div class="lang-switch">
     <button onclick="setLang('fr')">FR</button>
     <button onclick="setLang('en')">EN</button>
@@ -45,44 +39,34 @@ if(navToggle){
   </div>
 </header>
 
-<!-- MAIN CONTENT -->
 <main>
-
 <section class="fade-in">
-
-  <!-- TITRE (MULTILINGUE) -->
-  <h2 data-i18n="blog_title"></h2>
-
-  <!-- INTRO (MULTILINGUE) -->
+  <h2 data-i18n="blog_title">Blog & Événements</h2>
   <p data-i18n="blog_intro"></p>
 
-  <!-- BLOG DYNAMIQUE -->
-  <div class="blog-container" id="blogContainer">
-    <!-- JS injecte ici -->
-  </div>
-
+  <div id="blogContainer"></div>
 </section>
-
 </main>
 
-<!-- FOOTER -->
 <footer>
-
-<div class="socials">
-  <a href="#" data-i18n="social_facebook"></a>
-  <a href="#" data-i18n="social_instagram"></a>
-  <a href="#" data-i18n="social_twitter"></a>
-</div>
-
-<p>© 2026 Centre_Ruhuka. Tous droits réservés.</p>
-
-<a href="https://wa.me/25779993164" class="btn-floating">WhatsApp</a>
-
+<p>© 2026 Centre Ruhuka</p>
 </footer>
 
-<!-- SCRIPTS -->
 <script src="blog-data.js"></script>
 <script src="script.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.querySelector(".menu-toggle");
+  const menu = document.querySelector("nav ul");
+
+  if(toggle && menu){
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("show-menu");
+    });
+  }
+});
+</script>
 
 </body>
 </html>
