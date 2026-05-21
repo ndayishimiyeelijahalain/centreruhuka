@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="page_title">CENTRE_RUHUKA – Le Sanctuaire de l'Amour</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<canvas id="particles"></canvas>
+
+<header class="navbar">
+
+  <div class="logo">CENTRE RUHUKA</div>
+
+  <!-- 🍔 HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Accueil</a></li>
+      <li><a href="about.html" data-i18n="nav_about">À propos</a></li>
+      <li><a href="services.html" data-i18n="nav_services">Services</a></li>
+      <li><a href="team.html" data-i18n="nav_team">Équipe</a></li>
+      <li><a href="appointment.html" class="btn-nav" data-i18n="nav_appointment">Rendez-vous</a></li>
+      <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+    </ul>
+  </nav>
+
+  <!-- 🌍 LANGUES (INCHANGÉ) -->
+  <div class="lang-switch">
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('sw')">SW</button>
+    <button onclick="setLang('rn')">RN</button>
+  </div>
+
+</header>
+
+<section class="hero">
+  <img src="images/african-love-hands.jpg" alt="Couple amoureux" class="hero-img">
+  <div class="hero-overlay"></div>
+
+  <div class="hero-text">
+
+    <h1 class="romantic-title" data-i18n="hero_title">CENTRE RUHUKA</h1>
+
+    <!-- 💥 IMPORTANT: garde vide mais sécurisé -->
+    <p class="typed-text"></p>
+
+    <p class="hero-tagline" data-i18n="hero_tagline"></p>
+
+    <a href="appointment.html" class="btn-primary" data-i18n="hero_button">
+      Prendre Rendez-vous
+    </a>
+
+  </div>
+</section>
+
+<section class="fade-in">
+  <h2 data-i18n="intro_title"></h2>
+  <p data-i18n="intro_text"></p>
+
+  <h2 data-i18n="intro_why"></h2>
+  <p data-i18n="why_us_text"></p>
+</section>
+
+<section class="fade-in">
+  <h2 data-i18n="services_title"></h2>
+
+  <div class="service-list">
+    <div class="service-item">
+      <h3 data-i18n="services_marriage"></h3>
+      <p data-i18n="services_marriage_text"></p>
+    </div>
+
+    <div class="service-item">
+      <h3 data-i18n="services_couple"></h3>
+      <p data-i18n="services_couple_text"></p>
+    </div>
+
+    <div class="service-item">
+      <h3 data-i18n="services_reconstruction"></h3>
+      <p data-i18n="services_reconstruction_text"></p>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+<div class="socials">
+  <a href="https://www.facebook.com/profile.php?id=61569261083594" target="_blank" rel="noopener noreferrer">Facebook</a>
+  <a href="https://www.instagram.com/centreruhuka/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  <a href="https://x.com/centreruhuka" target="_blank" rel="noopener noreferrer">X</a>
+</div>
+
+
+<p>© 2026 Centre_Ruhuka. Tous droits réservés.</p>
+<a href="https://wa.me/25779993164" class="btn-floating">WhatsApp</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

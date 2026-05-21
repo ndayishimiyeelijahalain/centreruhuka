@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Blog – RUHUKA_CENTRE</title>
+
+<style>
+body{
+  font-family:Arial;
+  background:#0b0014;
+  color:white;
+  padding:20px;
+}
+
+h1{color:#ff69b4;}
+
+input, textarea, button{
+  width:100%;
+  margin:8px 0;
+  padding:10px;
+  border-radius:8px;
+  border:none;
+}
+
+button{
+  background:#ff1493;
+  color:white;
+  cursor:pointer;
+}
+
+.logout{
+  background:red;
+}
+
+.card{
+  background:#1a002b;
+  padding:15px;
+  margin-top:10px;
+  border-radius:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>🧠 ADMIN BLOG RUHUKA</h1>
+
+<button class="logout" onclick="logout()">🚪 Déconnexion</button>
+
+<h2>➕ Ajouter / Modifier</h2>
+
+<input id="date" type="date">
+<input id="image" placeholder="URL image (ex: images/blog1.jpg)">
+
+<input id="title_fr" placeholder="Titre FR">
+<input id="title_en" placeholder="Title EN">
+<input id="title_sw" placeholder="SW">
+<input id="title_rn" placeholder="RN">
+
+<textarea id="text_fr" placeholder="Texte FR"></textarea>
+<textarea id="text_en"></textarea>
+<textarea id="text_sw"></textarea>
+<textarea id="text_rn"></textarea>
+
+<button onclick="addPost()">💾 Enregistrer</button>
+
+<hr>
+
+<h2>📚 Articles</h2>
+<div id="list"></div>
+
+<script src="blog-data.js"></script>
+
+<script>
+// 🔐 SECURITE
+if(localStorage.getItem("auth") !== "true"){
+  window.location.href = "login.html";
+}
+
+let posts = JSON.parse(localStorage.getItem("blogPosts")) || blogPosts;
+let editIndex = null;
+
+// 💾 SAVE
+function save(){
+  localStorage.setItem("blogPosts", JSON.stringify(posts));
+}
+
+// ➕ ADD / EDIT
+function addPost(){
+
+  const post = {
+    id: Date.now(),
+    date: document.getElementById("date").value,
+    image: document.getElementById("image").value,
+    title:{
+      fr: title_fr.value,
+      en: title_en.value,
+      sw: title_sw.value,
+      rn: title_rn.value
+    },
+    text:{
+      fr: text_fr.value,
+      en: text_en.value,
+      sw: text_sw.value,
+      rn: text_rn.value
+    }
+  };
+
+  if(editIndex !== null){
+    posts[editIndex] = post;
+    editIndex = null;
+  }else{
+    posts.push(post);
+  }
+
+  save();
+  renderList();
+  clearForm();
+}
+
+// 🧹 CLEAR
+function clearForm(){
+  document.querySelectorAll("input, textarea").forEach(el=>el.value="");
+}
+
+// 🗑️ DELETE
+function deletePost(index){
+  if(confirm("Supprimer cet article ?")){
+    posts.splice(index,1);
+    save();
+    renderList();
+  }
+}
+
+// ✏️ EDIT
+function editPost(index){
+  const p = posts[index];
+
+  date.value = p.date;
+  image.value = p.image;
+
+  title_fr.value = p.title.fr;
+  title_en.value = p.title.en;
+  title_sw.value = p.title.sw;
+  title_rn.value = p.title.rn;
+
+  text_fr.value = p.text.fr;
+  text_en.value = p.text.en;
+  text_sw.value = p.text.sw;
+  text_rn.value = p.text.rn;
+
+  editIndex = index;
+}
+
+// 🔄 SORT
+function sortPosts(){
+  posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+}
+
+// 📚 RENDER
+function renderList(){
+  sortPosts();
+
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  posts.forEach((p,index)=>{
+    list.innerHTML += `
+      <div class="card">
+        <h3>${p.title.fr}</h3>
+        <p>${p.text.fr}</p>
+        <small>${p.date}</small>
+        <img src="${p.image}" style="width:100%;margin-top:10px;border-radius:10px;">
+
+        <br><br>
+        <button onclick="editPost(${index})">✏️ Modifier</button>
+        <button onclick="deletePost(${index})" style="background:red;">🗑️ Supprimer</button>
+      </div>
+    `;
+  });
+}
+
+// 🚪 LOGOUT
+function logout(){
+  localStorage.removeItem("auth");
+  window.location.href = "login.html";
+}
+
+renderList();
+</script>
+
+</body>
+</html>

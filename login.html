@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Login Admin</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  background:#0b0014;
+  color:white;
+  font-family:Arial;
+}
+
+.box{
+  background:#1a002b;
+  padding:30px;
+  border-radius:10px;
+  width:300px;
+}
+
+input, button{
+  width:100%;
+  padding:10px;
+  margin-top:10px;
+  border:none;
+  border-radius:5px;
+}
+
+button{
+  background:#ff1493;
+  color:white;
+  cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🔐 Admin Login</h2>
+
+  <input type="text" id="username" placeholder="Username">
+  <input type="password" id="password" placeholder="Password">
+
+  <button onclick="login()">Se connecter</button>
+</div>
+
+<script>
+function login(){
+
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  // 🔐 IDENTIFIANTS (modifiable)
+  if(user === "admin" && pass === "ruhuka123"){
+
+    localStorage.setItem("auth","true");
+
+    window.location.href = "blog-admin.html";
+
+  }else{
+    alert("Accès refusé !");
+  }
+}
+</script>
+
+</body>
+</html>
