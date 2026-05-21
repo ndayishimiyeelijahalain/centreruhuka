@@ -1512,4 +1512,95 @@ nav,
     max-width:300px;
   }
 
+}/* =========================
+   🚀 MOBILE OVERRIDE CLEAN FIX
+========================= */
+
+@media (max-width: 768px) {
+
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* FIX HEADER / NAV CONFLIT */
+  header, .navbar {
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  nav {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,30,0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: 0.4s ease;
+    z-index: 9999;
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 25px;
+    text-align: center;
+  }
+
+  /* HERO SAFE FIX */
+  .hero {
+    height: auto !important;
+    min-height: 80vh;
+    padding: 120px 20px 60px;
+  }
+
+  .hero-img {
+    object-fit: cover;
+  }
+
+  .romantic-title {
+    font-size: 26px !important;
+    line-height: 1.2;
+  }
+
+  .typed-text {
+    font-size: 15px !important;
+  }
+
+  /* CARDS FORCE FIX */
+  .service-item,
+  .team-member,
+  .blog-card {
+    width: 100% !important;
+    max-width: 350px;
+    margin: auto;
+  }
+
+  /* FORM FIX */
+  .appointment-form {
+    width: 100%;
+  }
+
+  input, textarea, select {
+    width: 100%;
+  }
+
+  /* BUTTON FIX */
+  .btn-primary,
+  button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+}body {
+  -webkit-text-size-adjust: 100%;
+  touch-action: manipulation;
 }
