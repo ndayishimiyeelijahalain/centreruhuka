@@ -771,17 +771,21 @@ function publishPost(id){
   alert("Article retiré ❌");
 
   renderBlog();
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("nav-menu");
 
-  if(!hamburger || !navMenu) return;
+  if (!hamburger || !navMenu) {
+    console.log("Menu elements missing");
+    return;
+  }
 
-  hamburger.addEventListener("click", ()=>{
+  hamburger.addEventListener("click", () => {
 
     navMenu.classList.toggle("active");
-    hamburger.classList.toggle("active");
+
+    console.log("MENU CLICKED");
 
   });
 
