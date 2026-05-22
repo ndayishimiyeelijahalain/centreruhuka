@@ -10,25 +10,36 @@
 <body>
 
 <header class="navbar">
+
   <div class="logo">CENTRE RUHUKA</div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html" data-i18n="nav_home"></a></li>
-      <li><a href="about.html" data-i18n="nav_about"></a></li>
-      <li><a href="services.html" data-i18n="nav_services"></a></li>
-      <li><a href="team.html" data-i18n="nav_team"></a></li>
-      <li><a href="appointment.html" class="btn-nav" data-i18n="nav_appointment"></a></li>
-      <li><a href="blog.html" data-i18n="nav_blog"></a></li>
-    </ul>
-  </nav>
-
+  <!-- LANGUES -->
   <div class="lang-switch">
     <button onclick="setLang('fr')">FR</button>
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('sw')">SW</button>
     <button onclick="setLang('rn')">RN</button>
   </div>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- MENU -->
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="about.html">À propos</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="team.html">Équipe</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="appointment.html">Rendez-vous</a></li>
+    </ul>
+  </nav>
+
 </header>
 
 <main>
