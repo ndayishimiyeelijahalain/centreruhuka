@@ -810,4 +810,50 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+  }function renderBlog(){
+
+  const container = document.getElementById("blogContainer");
+
+  if(!container) return;
+
+  const lang = localStorage.getItem("lang") || "fr";
+
+  let posts = JSON.parse(localStorage.getItem("blogPosts")) || [];
+
+  if(posts.length === 0){
+    container.innerHTML = "<p>Aucun article publié.</p>";
+    return;
   }
+
+  // seulement publiés
+  posts = posts.filter(post => post.published === true);
+
+  // tri récent
+  posts.sort((a,b)=> new Date(b.date) - new Date(a.date));
+
+  container.innerHTML = "";
+
+  posts.forEach(post=>{
+
+    container.innerHTML += `
+      <div class="blog-card fade-in">
+
+        <img src="${post.image}" 
+        style="width:100%;border-radius:10px;">
+
+        <small>${post.date}</small>
+
+        <h3>${post.title?.[lang] || ""}</h3>
+
+        <p>${post.text?.[lang] || ""}</p>
+
+      </div>
+    `;
+
+  });
+
+}
+
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderBlog();
+});
