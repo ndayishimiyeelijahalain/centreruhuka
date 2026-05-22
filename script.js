@@ -501,7 +501,27 @@ function renderBlog(){
   container.innerHTML = "";
 
   window.blogPosts = JSON.parse(localStorage.getItem("blogPosts")) || blogPosts;
-}
+}/* =========================
+   🍔 MOBILE MENU FINAL FIX
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const hamburger = document.getElementById("hamburger");
+  const navMenu = document.getElementById("nav-menu");
+
+  if(hamburger && navMenu){
+
+    hamburger.addEventListener("click", () => {
+
+      hamburger.classList.toggle("active");
+      navMenu.classList.toggle("active");
+
+    });
+
+  }
+
+});
 function logout(){
   localStorage.removeItem("auth");
   window.location.href = "login.html";

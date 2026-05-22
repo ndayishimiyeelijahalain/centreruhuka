@@ -1557,4 +1557,77 @@ main{
     text-decoration:none;
   }
 
+}/* =================================
+   FINAL WORKING MOBILE MENU
+================================= */
+
+@media(max-width:768px){
+
+  .hamburger{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+    z-index:10001;
+  }
+
+  .hamburger span{
+    width:28px;
+    height:3px;
+    background:white;
+    border-radius:10px;
+  }
+
+  #nav-menu{
+    position:fixed;
+    top:70px;
+    left:0;
+
+    width:100%;
+    height:calc(100vh - 70px);
+
+    background:rgba(0,0,20,0.98);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    transform:translateX(100%);
+    transition:0.3s ease;
+
+    z-index:10000;
+  }
+
+  #nav-menu.active{
+    transform:translateX(0);
+  }
+
+  #nav-menu ul{
+    display:flex !important;
+    flex-direction:column;
+    gap:25px;
+    list-style:none;
+    padding:0;
+  }
+
+  #nav-menu a{
+    color:white;
+    font-size:22px;
+    text-decoration:none;
+  }
+
+  /* animation X */
+
+  .hamburger.active span:nth-child(1){
+    transform:rotate(45deg) translate(5px,5px);
+  }
+
+  .hamburger.active span:nth-child(2){
+    opacity:0;
+  }
+
+  .hamburger.active span:nth-child(3){
+    transform:rotate(-45deg) translate(7px,-6px);
+  }
+
 }

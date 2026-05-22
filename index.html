@@ -8,34 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-
-  const navToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".navbar nav ul");
-
-  if(navToggle && navMenu){
-    navToggle.addEventListener("click", () => {
-      navMenu.classList.toggle("show-menu");
-    });
-  }
-
-});
-</script>
-
-<body>
-  <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = document.querySelector(".menu-toggle");
-  const navMenu = document.querySelector(".navbar nav ul");
-
-  if(navToggle && navMenu){
-    navToggle.addEventListener("click", ()=>{
-      navMenu.classList.toggle("show-menu");
-    });
-  }
-});
+  
 </script>
 <canvas id="particles"></canvas>
+<div class="lang-switch">
+  <button onclick="setLang('fr')">FR</button>
+  <button onclick="setLang('en')">EN</button>
+  <button onclick="setLang('sw')">SW</button>
+  <button onclick="setLang('rn')">RN</button>
+</div>
 
 <header class="navbar">
 
