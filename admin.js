@@ -34,7 +34,29 @@ function addPost(){
     }
   };
 
-  posts.push(post);
+  posts.push({
+  id: Date.now(),
+
+  published: true,
+
+  date: new Date().toISOString().split("T")[0],
+
+  image: imageInput.value,
+
+  title:{
+    fr:titleFr.value,
+    en:titleEn.value,
+    sw:titleSw.value,
+    rn:titleRn.value
+  },
+
+  text:{
+    fr:textFr.value,
+    en:textEn.value,
+    sw:textSw.value,
+    rn:textRn.value
+  }
+});
 
   savePosts(posts);
 
