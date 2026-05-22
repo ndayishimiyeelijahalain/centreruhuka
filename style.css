@@ -1630,4 +1630,58 @@ main{
     transform:rotate(-45deg) translate(7px,-6px);
   }
 
+}/* =========================
+   🌍 LANGUAGE SWITCH PRO
+========================= */
+
+.lang-switch{
+  position:absolute;
+  top:15px;
+  right:20px;
+
+  display:flex;
+  gap:6px;
+
+  z-index:99999;
+}
+
+.lang-switch button{
+
+  padding:4px 8px;
+
+  font-size:11px;
+  font-weight:600;
+
+  border:none;
+  border-radius:20px;
+
+  cursor:pointer;
+
+  background:rgba(255,255,255,0.12);
+
+  color:white;
+
+  backdrop-filter:blur(8px);
+
+  transition:0.3s ease;
+}
+
+.lang-switch button:hover{
+  background:#ff1493;
+  transform:translateY(-2px);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .lang-switch{
+    top:12px;
+    right:60px; /* laisse espace hamburger */
+  }
+
+  .lang-switch button{
+    font-size:10px;
+    padding:3px 7px;
+  }
+
 }
