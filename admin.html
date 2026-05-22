@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Blog</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+  padding:40px;
+}
+
+.admin-container{
+  max-width:900px;
+  margin:auto;
+}
+
+input, textarea{
+  width:100%;
+  margin-bottom:10px;
+  padding:12px;
+  border-radius:8px;
+  border:none;
+}
+
+textarea{
+  min-height:120px;
+}
+
+button{
+  padding:12px 20px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  margin-right:10px;
+}
+
+.blog-item{
+  background:rgba(255,255,255,0.08);
+  padding:20px;
+  margin-top:20px;
+  border-radius:12px;
+}
+
+img{
+  max-width:200px;
+  border-radius:10px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="admin-container">
+
+<h1>Gestion Blog</h1>
+
+<input type="text" id="titleFr" placeholder="Titre Français">
+<textarea id="textFr" placeholder="Texte Français"></textarea>
+
+<input type="text" id="titleEn" placeholder="Title English">
+<textarea id="textEn" placeholder="Text English"></textarea>
+
+<input type="text" id="titleSw" placeholder="Title Swahili">
+<textarea id="textSw" placeholder="Text Swahili"></textarea>
+
+<input type="text" id="titleRn" placeholder="Titre Kirundi">
+<textarea id="textRn" placeholder="Texte Kirundi"></textarea>
+
+<input type="text" id="image" placeholder="Image URL">
+
+<button onclick="addPost()">Publier</button>
+
+<hr>
+
+<div id="posts"></div>
+
+</div>
+
+<script src="admin.js"></script>
+
+</body>
+</html>
